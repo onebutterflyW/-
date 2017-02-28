@@ -11,6 +11,6 @@
 @interface WMConcurrentOperation : NSOperation
 
 //执行时调用这个方法
-//-(BOOL)performOperation:(NSOperation *)anOp;
+-(BOOL)performOperation:(NSOperation *)anOp;
 
 @end

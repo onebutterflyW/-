@@ -139,43 +139,43 @@
 }
 
 
-//
-//-(BOOL)performOperation:(NSOperation *)anOp{
-//
-//
-//    BOOL  ranIt = NO;
-//    
-//    if ([anOp isReady] && ![anOp isCancelled])
-//    {
-//        if (![anOp isAsynchronous]) {
-//            [anOp start];
-//        }
-//        else {
-//            [NSThread detachNewThreadSelector:@selector(start)
-//                                     toTarget:anOp withObject:nil];
-//        }
-//        ranIt = YES;
-//    }
-//    else if ([anOp isCancelled])
-//    {
-//        // If it was canceled before it was started,
-//        //  move the operation to the finished state.
-//        [self willChangeValueForKey:@"isFinished"];
-//        [self willChangeValueForKey:@"isExecuting"];
-//        executing = NO;
-//        finishing  = YES;
-//        [self didChangeValueForKey:@"isExecuting"];
-//        [self didChangeValueForKey:@"isFinished"];
-//        
-//        // Set ranIt to YES to prevent the operation from
-//        // being passed to this method again in the future.
-//        ranIt = YES;
-//    }
-//    return ranIt;
-//
-//
-//}
-//
+
+-(BOOL)performOperation:(NSOperation *)anOp{
+
+
+    BOOL  ranIt = NO;
+    
+    if ([anOp isReady] && ![anOp isCancelled])
+    {
+        if (![anOp isAsynchronous]) {
+            [anOp start];
+        }
+        else {
+            [NSThread detachNewThreadSelector:@selector(start)
+                                     toTarget:anOp withObject:nil];
+        }
+        ranIt = YES;
+    }
+    else if ([anOp isCancelled])
+    {
+        // If it was canceled before it was started,
+        //  move the operation to the finished state.
+        [self willChangeValueForKey:@"isFinished"];
+        [self willChangeValueForKey:@"isExecuting"];
+        executing = NO;
+        finishing  = YES;
+        [self didChangeValueForKey:@"isExecuting"];
+        [self didChangeValueForKey:@"isFinished"];
+        
+        // Set ranIt to YES to prevent the operation from
+        // being passed to this method again in the future.
+        ranIt = YES;
+    }
+    return ranIt;
+
+
+}
+
 
 
 

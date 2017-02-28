@@ -78,8 +78,8 @@
     //自定义并发的操作
     WMConcurrentOperation *op = [[WMConcurrentOperation alloc]init];
    
-    //[op performOperation:op];
-    [op start];
+   [op performOperation:op];
+   
     
 
 }
